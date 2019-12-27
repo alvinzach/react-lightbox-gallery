@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import ExampleComponent from 'react-lightbox-gallery'
+import Lightroom from 'react-lightbox-gallery'
 
 export default class App extends Component {
   render() {
@@ -53,7 +53,7 @@ export default class App extends Component {
     }
     return (
       <div>
-        <ExampleComponent images={images} settings={settings} />
+        <Lightroom images={images} settings={settings} />
       </div>
     )
   }

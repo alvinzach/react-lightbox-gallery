@@ -15,14 +15,39 @@ npm install --save react-lightbox-gallery
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'react-lightbox-gallery'
+import Lightroom from 'react-lightbox-gallery'
 
-class Example extends Component {
-  render () {
+export default class App extends Component {
+  render() {
+    var images = [
+      {
+        src: "https://images.unsplash.com/photo-1577279549270-b9e297533cdd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80",
+        desc: 'Person wearing shoes',
+        sub: 'Gift Habeshaw'
+      },
+      {
+        src: "https://images.unsplash.com/photo-1577277625082-36df4915ebeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+        desc: 'Blonde woman wearing sunglasses smiling at the camera ',
+        sub: 'Dmitriy Frantsev'
+      },
+      ....
+    ]
+    var settings = {
+      columnCount:{
+        default:5,
+        mobile:3,
+        tab:4
+      },
+      mode: 'dark'
+    }
     return (
-      <MyComponent />
+      <div>
+        <Lightroom images={images} settings={settings} />
+      </div>
     )
   }
+}
+
 }
 ```
 
