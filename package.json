@@ -1,6 +1,6 @@
 {
   "name": "react-lightbox-gallery",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A lightbox plugin for react",
   "author": "alvinzach",
   "license": "MIT",
@@ -8,6 +8,7 @@
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
+  "keywords": ["react","lightbox","react lightbox gallery" ,"image gallery" ,"slideshow"],
   "engines": {
     "node": ">=8",
     "npm": ">=5"
