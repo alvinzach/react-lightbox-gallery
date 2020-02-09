@@ -74,7 +74,7 @@ export default class ExampleComponent extends Component {
       lightroomBackground = 'rgba(255,255,255,0.95)',
       textColor = '#000'
     if (this.props.settings) {
-      if (this.props.settings.columnCount) {
+      if (this.props.settings.columnCount&&typeof window!=undefined) {
         if (window.outerWidth <= 600)
           columncount = this.props.settings.columnCount.mobile ? this.props.settings.columnCount.mobile : 2
         else if (window.outerWidth <= 800)
