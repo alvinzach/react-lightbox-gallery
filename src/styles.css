@@ -64,13 +64,43 @@
   max-height: 80%;
 }
 
-.closebutton {
+.topmenu {
   position: absolute;
   right: 5%;
+  top:1%;
+  font-size: medium;
 }
 .sub{
   font-style: italic;
   font-size: 14px;
+}
+.icon{
+  margin-left:15px;
+  font-size: 20px;
+}
+.thumbpanel{
+  height:100vh;
+  width:0vw;
+  background: #fff;
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  right: 0;
+  transition: 0.25s;
+  overflow-y:auto ;
+  padding-bottom: 10px;
+  text-align: center;
+
+
+}
+.thumbnail{
+  height:20vh;
+  margin-top:10px;
+  width:80%;
+  background: center center;
+  background-size: cover;
+  margin-left: auto;
+  margin-right:auto;
 }
 /* Responsive layout - makes a two column-layout instead of four columns */
 

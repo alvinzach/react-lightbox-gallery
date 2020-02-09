@@ -1,8 +1,16 @@
 # react-lightbox-gallery
 
-> A lightbox plugin for react
+
 
 [![NPM](https://img.shields.io/npm/v/react-lightbox-gallery.svg)](https://www.npmjs.com/package/react-lightbox-gallery) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
+A minimal lightbox image gallery plugin for react .
+
+## Features
+* Light/Dark Mode
+* Responsiveness options in multiple devices
+* Thumbnail navigation
+
 
 ## Install
 

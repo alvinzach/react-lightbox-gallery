@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import styles from './styles.css'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes, faList } from '@fortawesome/free-solid-svg-icons'
 export default class ExampleComponent extends Component {
   // intial state 
   state = {
     length: 0,
     lightroomactive: false,
+    thumbmenuactive: false,
     activeindex: 0,
     path: '',
     desc: '',
@@ -29,7 +31,8 @@ export default class ExampleComponent extends Component {
 
   closelightroom = () => {
     this.setState({
-      lightroomactive: false
+      lightroomactive: false,
+      thumbmenuactive:false
     })
   }
   //lightbox controls
@@ -61,7 +64,11 @@ export default class ExampleComponent extends Component {
       }
     )
   }
-
+  thumbmenutoggle = () => {
+    this.setState({
+      thumbmenuactive: !this.state.thumbmenuactive
+    })
+  }
   calculateStyles = () => {
     var columncount = 4,
       lightroomBackground = 'rgba(255,255,255,0.95)',
@@ -75,20 +82,25 @@ export default class ExampleComponent extends Component {
         else
           columncount = this.props.settings.columnCount.default ? this.props.settings.columnCount.default : 5
       }
-      lightroomBackground=this.props.settings.mode == 'light' ? 'rgba(255,255,255,0.95)' : 'rgba(0,0,0,0.95)'
-      textColor=this.props.settings.mode == 'light' ?'#000' : '#fff'
+      lightroomBackground = this.props.settings.mode == 'light' ? 'rgba(255,255,255,0.95)' : 'rgba(0,0,0,0.95)'
+      textColor = this.props.settings.mode == 'light' ? '#000' : '#fff'
+      var lightroomwidth = this.state.thumbmenuactive ? '80vw' : '100vw'
     }
-        return {
-          row: {
-            columnCount: columncount
-          },
-          lightroom: {
-            backgroundColor:lightroomBackground,
-            color:textColor
-          }
-        }
+    return {
+      row: {
+        columnCount: columncount
+      },
+      lightroom: {
+        backgroundColor: lightroomBackground,
+        color: textColor,
+        width: lightroomwidth
+      },
+      thumbpanel: {
+        width: this.state.thumbmenuactive ? '20vw' : '0vw'
+      }
     }
-  
+  }
+
   render() {
     const runtimeStyles = this.calculateStyles()
     document.onkeydown = (e) => {
@@ -116,7 +128,10 @@ export default class ExampleComponent extends Component {
         }} >
 
 
-          <img className={styles.closebutton} src={require('./img/closebutton.svg')} onClick={this.closelightroom} />
+          <div className={styles.topmenu}>
+            <FontAwesomeIcon className={styles.icon}  onClick={this.thumbmenutoggle} icon={faList} />
+            <FontAwesomeIcon className={styles.icon} onClick={this.closelightroom} icon={faTimes} />
+          </div>
           <div className={styles.lightroomcontent} >
             <img className={styles.lightroomimg} src={this.state.path} style={{ maxWidth: "100%" }} />
           </div>
@@ -133,7 +148,15 @@ export default class ExampleComponent extends Component {
             <img src={require('./img/right.svg')} />
           </a>
         </div>
+        <div className={styles.thumbpanel} style={runtimeStyles.thumbpanel}>
+          {this.props.images.map((img, i) =>
+            <div className={styles.thumbnail} data-index={i} key={i} onClick={this.openlightroom} style={{
+              backgroundImage:`url(${img.src})`
+              }}>
+            </div>
+          )}
 
+        </div>
       </div>
 
     )

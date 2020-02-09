@@ -1,6 +1,6 @@
 {
   "name": "react-lightbox-gallery",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A lightbox plugin for react",
   "author": "alvinzach",
   "license": "MIT",
@@ -8,7 +8,17 @@
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
-  "keywords": ["react","lightbox","react lightbox gallery" ,"image gallery" ,"slideshow"],
+  "keywords": [
+    "react",
+    "react-component",
+    "image",
+    "gallery",
+    "react-lightbox-gallery",
+    "lightbox",
+    "react lightbox gallery",
+    "image gallery",
+    "slideshow"
+  ],
   "engines": {
     "node": ">=8",
     "npm": ">=5"
@@ -58,5 +68,10 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.26",
+    "@fortawesome/free-solid-svg-icons": "^5.12.0",
+    "@fortawesome/react-fontawesome": "^0.1.8"
+  }
 }
