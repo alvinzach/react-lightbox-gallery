@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import styles from './styles.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes, faList } from '@fortawesome/free-solid-svg-icons'
-export default class ExampleComponent extends Component {
+import * as Icon from 'react-feather';
+
+export default class LightRoomComponent extends Component {
   // intial state 
   state = {
     length: 0,
@@ -40,7 +40,8 @@ export default class ExampleComponent extends Component {
     var id = parseInt(this.state.activeindex, 10)
     if (id == this.state.length - 1)
       this.setState({
-        lightroomactive: false
+        lightroomactive: false,
+        thumbmenuactive: false
       })
     else
       this.getcontent(++id)
@@ -49,7 +50,8 @@ export default class ExampleComponent extends Component {
     var id = parseInt(this.state.activeindex, 10)
     if (id == 0)
       this.setState({
-        lightroomactive: false
+        lightroomactive: false,
+        thumbmenuactive: false,
       })
     else
       this.getcontent(--id)
@@ -84,7 +86,7 @@ export default class ExampleComponent extends Component {
       }
       lightroomBackground = this.props.settings.mode == 'light' ? 'rgba(255,255,255,0.95)' : 'rgba(0,0,0,0.95)'
       textColor = this.props.settings.mode == 'light' ? '#000' : '#fff'
-      var lightroomwidth = this.state.thumbmenuactive ? '80vw' : '100vw'
+      var lightroomwidth = this.state.thumbmenuactive ? '85vw' : '100vw'
     }
     return {
       row: {
@@ -96,7 +98,7 @@ export default class ExampleComponent extends Component {
         width: lightroomwidth
       },
       thumbpanel: {
-        width: this.state.thumbmenuactive ? '20vw' : '0vw'
+        width: this.state.thumbmenuactive ? '15vw' : '0vw'
       }
     }
   }
@@ -123,14 +125,13 @@ export default class ExampleComponent extends Component {
         </div>
 
         <div className={styles.lightroom} style={{
-          display: this.state.lightroomactive ? 'block' : 'none',
+          visibility: this.state.lightroomactive ? 'visible' : 'hidden',
           ...runtimeStyles.lightroom
         }} >
 
-
           <div className={styles.topmenu}>
-            <FontAwesomeIcon className={styles.icon}  onClick={this.thumbmenutoggle} icon={faList} />
-            <FontAwesomeIcon className={styles.icon} onClick={this.closelightroom} icon={faTimes} />
+            <Icon.AlignJustify className={styles.icon}  onClick={this.thumbmenutoggle} />
+            <Icon.X className={styles.icon} onClick={this.closelightroom} />
           </div>
           <div className={styles.lightroomcontent} >
             <img className={styles.lightroomimg} src={this.state.path} style={{ maxWidth: "100%" }} />
@@ -140,13 +141,9 @@ export default class ExampleComponent extends Component {
             <p className={styles.desc}>{this.state.desc}</p>
             <p className={styles.sub}>{this.state.sub}</p>
           </div>
+          <Icon.ArrowLeft className={styles.carouselcontrolprev} role="button" tabindex="0" onClick={this.moveleft}/>
+          <Icon.ArrowRight className={styles.carouselcontrolnext} role="button" tabindex="0" onClick={this.moveright} />
 
-          <a className={styles.carouselcontrolprev} role="button" tabindex="0" onClick={this.moveleft}>
-            <img src={require('./img/left.svg')} />
-          </a>
-          <a class={styles.carouselcontrolnext} role="button" tabindex="0" onClick={this.moveright}>
-            <img src={require('./img/right.svg')} />
-          </a>
         </div>
         <div className={styles.thumbpanel} style={runtimeStyles.thumbpanel}>
           {this.props.images.map((img, i) =>
