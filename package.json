@@ -17,8 +17,7 @@
     "lightbox",
     "react lightbox gallery",
     "image gallery",
-    "slideshow",
-    
+    "slideshow"
   ],
   "engines": {
     "node": ">=8",
