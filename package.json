@@ -1,6 +1,6 @@
 {
   "name": "react-lightbox-gallery",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "A lightbox plugin for react",
   "author": "alvinzach",
   "license": "MIT",
@@ -17,7 +17,8 @@
     "lightbox",
     "react lightbox gallery",
     "image gallery",
-    "slideshow"
+    "slideshow",
+    
   ],
   "engines": {
     "node": ">=8",
