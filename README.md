@@ -6,6 +6,9 @@
 
 A minimal lightbox image gallery plugin for react .
 
+##Demo
+Find demo in [codesandbox](https://codesandbox.io/s/laughing-wu-n2b3t)
+
 ## Features
 * Light/Dark Mode
 * Responsiveness options in multiple devices
