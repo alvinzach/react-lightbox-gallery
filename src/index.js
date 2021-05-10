@@ -1,6 +1,14 @@
 import React, { Component } from 'react'
 import styles from './styles.css'
-import * as Icon from 'react-feather';
+// icons
+import closeIconLight from './images/x-light.svg';
+import closeIconDark from './images/x-dark.svg';
+import thumbnailLight from './images/align-justify-light.svg'
+import thumbnailDark from './images/align-justify-dark.svg'
+import arrowLeftLight from './images/arrow-left-light.svg'
+import arrowLeftDark from './images/arrow-left-dark.svg'
+import arrowRightLight from './images/arrow-right-light.svg'
+import arrowRightDark from './images/arrow-right-dark.svg'
 
 export default class LightRoomComponent extends Component {
   // intial state 
@@ -98,7 +106,8 @@ export default class LightRoomComponent extends Component {
         width: lightroomwidth
       },
       thumbpanel: {
-        width: this.state.thumbmenuactive ? '15vw' : '0vw'
+        width: this.state.thumbmenuactive ? '15vw' : '0vw',
+        background : this.props.settings.mode == 'light' ? 'rgba(255,255,255,0.95)' : 'rgba(0,0,0,0.95)'
       }
     }
   }
@@ -106,9 +115,9 @@ export default class LightRoomComponent extends Component {
   render() {
     const runtimeStyles = this.calculateStyles()
     document.onkeydown = (e) => {
-      if (e.keyCode === 39)
+      if (e.key === 39)
         this.moveright()
-      if (e.keyCode === 37)
+      if (e.key === 37)
         this.moveleft()
     }
     return (
@@ -117,8 +126,8 @@ export default class LightRoomComponent extends Component {
         <div className={styles.row} style={runtimeStyles.row}>
 
           {this.props.images.map((img, i) =>
-            <div className={styles.column} >
-              <img data-index={i} src={img.src} key={i} onClick={this.openlightroom} />
+            <div className={styles.column} key={i}>
+              <img data-index={i} src={img.src}  onClick={this.openlightroom} />
             </div>
           )}
 
@@ -130,8 +139,8 @@ export default class LightRoomComponent extends Component {
         }} >
 
           <div className={styles.topmenu}>
-            <Icon.AlignJustify className={styles.icon}  onClick={this.thumbmenutoggle} />
-            <Icon.X className={styles.icon} onClick={this.closelightroom} />
+            <img src={this.props.settings.mode == 'light'? thumbnailDark:thumbnailLight} className={styles.icon}  onClick={this.thumbmenutoggle} />
+            <img src={this.props.settings.mode == 'light'? closeIconDark:closeIconLight} className={styles.icon} onClick={this.closelightroom} />
           </div>
           <div className={styles.lightroomcontent} >
             <img className={styles.lightroomimg} src={this.state.path} style={{ maxWidth: "100%" }} />
@@ -141,8 +150,8 @@ export default class LightRoomComponent extends Component {
             <p className={styles.desc}>{this.state.desc}</p>
             <p className={styles.sub}>{this.state.sub}</p>
           </div>
-          <Icon.ArrowLeft className={styles.carouselcontrolprev} role="button" tabindex="0" onClick={this.moveleft}/>
-          <Icon.ArrowRight className={styles.carouselcontrolnext} role="button" tabindex="0" onClick={this.moveright} />
+          <img src={this.props.settings.mode == 'light'? arrowLeftDark:arrowLeftLight} className={styles.carouselcontrolprev} role="button" onClick={this.moveleft}/>
+          <img src={this.props.settings.mode == 'light'? arrowRightDark:arrowRightLight} className={styles.carouselcontrolnext} role="button" onClick={this.moveright} />
 
         </div>
         <div className={styles.thumbpanel} style={runtimeStyles.thumbpanel}>

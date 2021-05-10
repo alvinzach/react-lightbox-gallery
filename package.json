@@ -1,6 +1,6 @@
 {
   "name": "react-lightbox-gallery",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A lightbox plugin for react",
   "author": "alvinzach",
   "license": "MIT",
@@ -68,8 +68,5 @@
   },
   "files": [
     "dist"
-  ],
-  "dependencies": {
-    "react-feather": "^2.0.9"
-  }
+  ]
 }

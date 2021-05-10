@@ -49,7 +49,7 @@ export default class App extends Component {
         mobile:3,
         tab:4
       },
-      mode: 'dark'
+      mode: 'light'
     }
     return (
       <div>
