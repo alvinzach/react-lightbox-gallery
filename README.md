@@ -13,6 +13,8 @@ A minimal lightbox image gallery plugin for react .
 Find demo in [codesandbox](https://codesandbox.io/s/laughing-wu-n2b3t)
 
 ## Features
+* :tada:Swipe support [v2.0.0]
+* :tada:Light weight [v2.0.0]
 * Light/Dark Mode
 * Responsiveness options in multiple devices
 * Thumbnail navigation
@@ -44,8 +46,7 @@ export default class App extends Component {
         src: "https://images.unsplash.com/photo-1577277625082-36df4915ebeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
         desc: 'Blonde woman wearing sunglasses smiling at the camera ',
         sub: 'Dmitriy Frantsev'
-      },
-      ....
+      }
     ]
     var settings = {
       columnCount:{
@@ -65,6 +66,7 @@ export default class App extends Component {
 
 }
 ```
+
 
 ## License
 
