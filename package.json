@@ -68,9 +68,5 @@
   },
   "files": [
     "dist"
-  ],
-  "dependencies": {
-    "@bryandollery/react-swipeable": "^5.6.2",
-    "react-swipeable": "^6.1.0"
-  }
+  ]
 }
